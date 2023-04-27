@@ -125,7 +125,7 @@ public class Level5 {
         wizard.attack(boss);
         Random random = new Random();
         int random_number = random.nextInt(99) + 1;
-        if(random_number <= 5){
+        if(random_number <= 35){
 
             System.out.println("You get a firework.");
             number_fireworks++;
@@ -169,7 +169,7 @@ public class Level5 {
         wizard.magicattack(boss);
         Random random = new Random();
         int random_number = random.nextInt(99) + 1;
-        if(random_number <= 7.5){
+        if(random_number <= 35){
 
             System.out.println("You get a firework.");
             number_fireworks++;

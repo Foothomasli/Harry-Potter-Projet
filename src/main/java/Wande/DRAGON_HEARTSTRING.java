@@ -7,7 +7,7 @@ public class DRAGON_HEARTSTRING extends Wande {
 
     public DRAGON_HEARTSTRING() {
         super.core = "DRAGON HEARTSTRING";
-        super.size = 50;
+        super.size = 150;
     }
 
     public  void attack(Wizard wizard, Ennemy ennemy){

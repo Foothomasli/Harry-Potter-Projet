@@ -3,7 +3,7 @@ import Character.Wizard;
 public abstract class Ennemy {
 
     public String name;
-    public double hp ;
+    public double hp;
     public double defense;
     public double attack;
     public String state;

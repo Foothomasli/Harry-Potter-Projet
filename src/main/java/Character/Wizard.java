@@ -7,7 +7,7 @@ import Potion.*;
 public class Wizard {
 
     public String name;
-    public double hp = 100;
+    public double hp;
     public double hpmax = 100;
     public double mp = 50;
     public double mpmax = 50;

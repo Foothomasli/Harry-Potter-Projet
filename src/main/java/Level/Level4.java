@@ -351,7 +351,7 @@ public class Level4 {
 
 
         System.out.println("You met Voldemort and Peter Pettigrow\n");
-        while( boss[0].hp > 0 && boss[1].hp >0 && wizard.hp > 0){
+        while( (boss[0].hp > 0 || boss[1].hp >0) && wizard.hp > 0){
 
             do {
                 operater_boss(wizard);

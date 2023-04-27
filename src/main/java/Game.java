@@ -26,6 +26,7 @@ public class Game {
         Level6 level6 = new Level6();
         Level7 level7 = new Level7();
 
+
         level1.normal_level(wizard);
 
         if (wizard.hp > 0){
@@ -64,6 +65,7 @@ public class Game {
             level5.boss_level(wizard);
         }
 
+
         if (wizard.hp > 0){
             level6.normal_level(wizard);
         }
@@ -84,6 +86,8 @@ public class Game {
 
             System.out.println("You win the game");
         }
+
+
 
     }
 
