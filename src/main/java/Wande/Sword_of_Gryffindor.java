@@ -8,7 +8,7 @@ public class Sword_of_Gryffindor extends Wande{
     public Sword_of_Gryffindor(){
 
         super.core = "Sword_of_Gryffindor";
-        super.size = 70;
+        super.size = 170;
     }
 
     public void attack(Wizard wizard, Ennemy ennemy){

@@ -9,7 +9,7 @@ public class PHOENIX_FEATHER extends Wande {
 
         super.core = "PHOENIX FEATHER";
 
-        super.size = 30;
+        super.size = 130;
     }
 
 
