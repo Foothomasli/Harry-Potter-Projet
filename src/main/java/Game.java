@@ -1,11 +1,12 @@
 
+import AllSpell.WingardiumLeviosa;
 import    Character.Wizard;
 import    Level.*;
 
 
-public class Game 
+public class Game{
     
-    // Projet Li Qiushi
+    // Project Li Qiushi
 
     public static void main(String[] args) {
 
@@ -29,12 +30,13 @@ public class Game
         Level7 level7 = new Level7();
 
 
+
         level1.normal_level(wizard);
 
         if (wizard.hp > 0){
             level1.boss_level(wizard);
         }
-
+        /*
         if (wizard.hp > 0){
             level2.normal_level(wizard);
         }
@@ -88,6 +90,8 @@ public class Game
 
             System.out.println("You win the game");
         }
+        */
+
 
 
 

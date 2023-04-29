@@ -1,6 +1,6 @@
 package Level;
 
-import    Spell.Sectumsempra;
+import    AllSpell.Sectumsempra;
 import    Character.Ennemy.Boss.Dolores_Ombrage;
 import    Character.Ennemy.Empty_ennemy;
 import    Character.Ennemy.Ennemy;

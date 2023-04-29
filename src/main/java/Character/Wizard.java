@@ -1,13 +1,17 @@
 package Character;
 import Character.Ennemy.*;
 import Wande.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 import Potion.*;
+import AllSpell.*;
 
 public class Wizard {
 
     public String name;
-    public double hp;
+    public double hp = 100;
     public double hpmax = 100;
     public double mp = 50;
     public double mpmax = 50;
@@ -16,6 +20,7 @@ public class Wizard {
     public Wande wande;
     public String house;
     public Potion[] potions = new Potion[15];
+    public Map<String,Spell> spell = new HashMap<>();
 
     public Wizard(){
 
@@ -127,12 +132,22 @@ public class Wizard {
             default -> System.out.println("You don't have this potion,you wasted this opportunity");
         }
     }
-    /*
-    public void useFloatingspell(Ennemy ennemy){
 
-        WingardiumLeviosa wingardiumLeviosa = new WingardiumLeviosa();
-        wingardiumLeviosa.usespell(this, ennemy);
+    public void useSpell(Ennemy ennemy){
+
+        System.out.println("You already learned these spell:\n");
+        Iterator<Map.Entry<String,Spell>> iterator = spell.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String,Spell> entry = iterator.next();
+            String name = entry.getKey();
+            System.out.print("[" + name + "]" + "    ");
+        }
+        System.out.println("\n");
+        System.out.println("Which spell do you want to use ? Please spell it:");
+        Scanner scanner = new Scanner(System.in);
+        String a = scanner.nextLine();
+        Spell useSpell = spell.get(a);
+        useSpell.usespell(this,ennemy);
     }
-    */
 }
 

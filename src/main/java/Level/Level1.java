@@ -1,5 +1,5 @@
 package  Level;
-import   Spell.WingardiumLeviosa;
+import   AllSpell.WingardiumLeviosa;
 import   Character.Ennemy.Boss.Troll;
 import   Character.Ennemy.Empty_ennemy;
 import   Character.Ennemy.Ennemy;
@@ -65,7 +65,7 @@ public class Level1 {
         }
         System.out.print("LifePotion: "+potion1+"  "+"MagicPotion: "+potion2+"  "+"StrengtheningPotion: "+potion3+"  ");
         System.out.print("                   ");
-        System.out.print(boss.name + ": " + boss.hp + "    " + boss.state);
+        System.out.print(boss.name + ": " + boss.hp + "    " + "State: " + boss.state);
 
     }
 
@@ -201,9 +201,13 @@ public class Level1 {
     public void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You used float spell");
+        /*System.out.println("You used float spell");
         WingardiumLeviosa floating_spell = new WingardiumLeviosa();
         floating_spell.usespell(wizard, boss);
+        */
+        affiche_boss(wizard);
+        System.out.println("\n");
+        wizard.useSpell(boss);
         affiche_boss(wizard);
         System.out.println(" ");
         System.out.println(" ");
@@ -251,7 +255,10 @@ public class Level1 {
             System.out.println("\n");
         }
         if(wizard.hp > 0){
-            System.out.println("You learned floating spell , your abilities have been improved");
+
+            System.out.println("You learned Wingardium Leviosa");
+            WingardiumLeviosa wingardiumLeviosa = new WingardiumLeviosa();
+            wizard.spell.put(wingardiumLeviosa.getName(), wingardiumLeviosa);
             settlement(wizard);
             System.out.println("\n");
         }

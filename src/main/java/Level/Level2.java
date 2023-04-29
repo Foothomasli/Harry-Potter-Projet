@@ -1,5 +1,5 @@
 package Level;
-import    Spell.Accio;
+import    AllSpell.Accio;
 import    Character.Ennemy.Boss.Basilic;
 import    Character.Ennemy.Empty_ennemy;
 import    Character.Ennemy.Ennemy;

@@ -1,7 +1,7 @@
 package Level;
 
-import    Spell.Accio;
-import    Spell.Invisibility;
+import    AllSpell.Accio;
+import    AllSpell.Invisibility;
 import    Character.Ennemy.Boss.Peter_Pettigrow;
 import    Character.Ennemy.Boss.Voldemort;
 import    Character.Ennemy.Empty_ennemy;

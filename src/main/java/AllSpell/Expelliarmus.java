@@ -1,4 +1,4 @@
-package Spell;
+package AllSpell;
 import Character.Wizard;
 
 public class Expelliarmus {

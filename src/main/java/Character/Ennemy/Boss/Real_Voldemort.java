@@ -2,8 +2,8 @@ package Character.Ennemy.Boss;
 import Character.Ennemy.Ennemy;
 import Character.Wizard;
 import java.util.Random;
-import Spell.Avada_Kedavra;
-import Spell.Expelliarmus;
+import AllSpell.Avada_Kedavra;
+import AllSpell.Expelliarmus;
 public class Real_Voldemort extends Ennemy {
 
     public Real_Voldemort(){

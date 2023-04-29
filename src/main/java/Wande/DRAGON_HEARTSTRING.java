@@ -16,13 +16,10 @@ public class DRAGON_HEARTSTRING extends Wande {
         int a = random.nextInt(100)+1;
 
         if(ennemy.hp > 0){
-
             if(wizard.house.equals("Ravenclaw")){
-
                 ennemy.hp = ennemy.hp - ennemy.defense(this.size, ennemy.defense);
             }
             else {
-
                 if (a > 20) {
                     ennemy.hp = ennemy.hp - ennemy.defense(this.size, ennemy.defense);
                 }

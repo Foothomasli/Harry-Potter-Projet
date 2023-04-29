@@ -1,6 +1,6 @@
 package Level;
 
-import    Spell.Expecto_Patronum;
+import    AllSpell.Expecto_Patronum;
 import    Character.Ennemy.Boss.Basilic;
 import    Character.Ennemy.Empty_ennemy;
 import    Character.Ennemy.Ennemy;
