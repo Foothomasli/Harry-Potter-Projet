@@ -362,10 +362,7 @@ public class Level4 {
         }
         if(wizard.hp > 0){
 
-            Invisibility invisibility_ = new Invisibility();
-            invisibility_.usespell();
-            Accio accio_spell = new Accio();
-            accio_spell.usespell();
+
             System.out.println("You managed to suck Portkey towards you and escaped.");
             System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);

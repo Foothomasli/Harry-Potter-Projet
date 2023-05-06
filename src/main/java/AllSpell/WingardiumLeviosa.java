@@ -8,7 +8,7 @@ public class WingardiumLeviosa extends Spell{
 
     @Getter
     public String name = "Wingardium Leviosa";
-    public void usespell(Wizard wizard, Ennemy ennemy){
+    public boolean usespell(Wizard wizard, Ennemy ennemy){
 
         System.out.println("\n");
         System.out.println("You use Wingardium Leviosa to "+ ennemy.name + "\n");
@@ -17,17 +17,29 @@ public class WingardiumLeviosa extends Spell{
         if(wizard.mp >= 10){
 
             if(a>20){
+
                 ennemy.state = "Floating";
                 wizard.mp = wizard.mp - 10;
                 System.out.println("You successfully used the spell");
+                return true;
             }
             else {
-                System.out.println("Your spell has failed.");
-                wizard.mp = wizard.mp - 10;
+
+                if(wizard.house.equals("Ravenclaw")){
+                    System.out.println("You successfully used the spell");
+                    return true;
+                }
+                else {
+
+                    System.out.println("Your spell has failed.");
+                    wizard.mp = wizard.mp - 10;
+                    return false;
+                }
             }
         }
         else {
             System.out.println("You don't have enough magic");
+            return false;
         }
     }
 

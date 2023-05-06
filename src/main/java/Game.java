@@ -36,7 +36,7 @@ public class Game{
         if (wizard.hp > 0){
             level1.boss_level(wizard);
         }
-        /*
+
         if (wizard.hp > 0){
             level2.normal_level(wizard);
         }
@@ -44,7 +44,7 @@ public class Game{
         if (wizard.hp > 0){
             level2.boss_level(wizard);
         }
-
+        /*
         if (wizard.hp > 0){
             level3.normal_level(wizard);
         }

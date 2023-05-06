@@ -1,5 +1,6 @@
 package Level;
 import    AllSpell.Accio;
+import AllSpell.WingardiumLeviosa;
 import    Character.Ennemy.Boss.Basilic;
 import    Character.Ennemy.Empty_ennemy;
 import    Character.Ennemy.Ennemy;
@@ -27,7 +28,7 @@ public class Level2 {
         }
     }
 
-    public void affiche(Wizard wizard){
+     void affiche(Wizard wizard){
 
         System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
@@ -51,7 +52,7 @@ public class Level2 {
         }
     }
 
-    public void affiche_boss(Wizard wizard){
+    void affiche_boss(Wizard wizard){
 
         System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
@@ -93,7 +94,7 @@ public class Level2 {
         }
     }
 
-    public void attack(Wizard wizard){
+    void attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -119,12 +120,12 @@ public class Level2 {
         }
     }
 
-    public void attack_boss(Wizard wizard){
+    void attack_boss(Wizard wizard){
 
         wizard.attack(boss);
     }
 
-    public void magic_attack(Wizard wizard){
+    void magic_attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -151,12 +152,12 @@ public class Level2 {
         }
     }
 
-    public void magic_attack_boss(Wizard wizard){
+    void magic_attack_boss(Wizard wizard){
 
         wizard.magicattack(boss);
     }
 
-    public void ennemy_attack(Wizard wizard){
+    void ennemy_attack(Wizard wizard){
 
         for (Ennemy ennemy : ennemies) {
 
@@ -166,7 +167,7 @@ public class Level2 {
         }
     }
 
-    public void operater( Wizard wizard){
+    void operater( Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche(wizard);
@@ -186,7 +187,7 @@ public class Level2 {
         }
     }
 
-    public void operater_boss(Wizard wizard){
+    void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
@@ -206,7 +207,7 @@ public class Level2 {
         }
     }
 
-    public void settlement(Wizard wizard){
+    void settlement(Wizard wizard){
 
         wizard.hpmax = wizard.hpmax + 50;
         wizard.mpmax = wizard.mpmax + 25;
@@ -229,7 +230,7 @@ public class Level2 {
         }
     }
 
-    public void settlement_boss(Wizard wizard){
+    void settlement_boss(Wizard wizard){
 
         wizard.hpmax = wizard.hpmax + 50;
         wizard.mpmax = wizard.mpmax + 25;
@@ -259,7 +260,9 @@ public class Level2 {
             System.out.println("\n");
         }
         if(wizard.hp > 0){
-            System.out.println("You learned Accio spell");
+            System.out.println("You learned new spell : Accio");
+            Accio accio = new Accio();
+            wizard.spell.put(accio.getName(), accio);
             System.out.println("Your abilities have been improved");
             settlement(wizard);
             System.out.println("\n");
@@ -296,8 +299,12 @@ public class Level2 {
                 System.out.println("Your abilities have been improved");
             }
             else {
-                Accio accio = new Accio();
-                accio.usespell();
+
+                do {
+                    invalid_operation = wizard.useSpell(boss);
+                    System.out.println("\n");
+                }while (!invalid_operation);
+
                 System.out.println("You pulled out Basilic's tooth and destroyed Tom Jedusor's diary. \n");
             }
             settlement_boss(wizard);

@@ -133,7 +133,7 @@ public class Wizard {
         }
     }
 
-    public void useSpell(Ennemy ennemy){
+    public boolean useSpell(Ennemy ennemy){
 
         System.out.println("You already learned these spell:\n");
         Iterator<Map.Entry<String,Spell>> iterator = spell.entrySet().iterator();
@@ -146,8 +146,8 @@ public class Wizard {
         System.out.println("Which spell do you want to use ? Please spell it:");
         Scanner scanner = new Scanner(System.in);
         String a = scanner.nextLine();
-        Spell useSpell = spell.get(a);
-        useSpell.usespell(this,ennemy);
+        Spell Spellused = spell.get(a);
+        return Spellused.usespell(this,ennemy);
     }
 }
 

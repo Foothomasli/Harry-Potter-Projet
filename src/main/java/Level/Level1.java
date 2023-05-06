@@ -201,10 +201,6 @@ public class Level1 {
     public void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
-        /*System.out.println("You used float spell");
-        WingardiumLeviosa floating_spell = new WingardiumLeviosa();
-        floating_spell.usespell(wizard, boss);
-        */
         affiche_boss(wizard);
         System.out.println("\n");
         wizard.useSpell(boss);
@@ -260,6 +256,7 @@ public class Level1 {
             WingardiumLeviosa wingardiumLeviosa = new WingardiumLeviosa();
             wizard.spell.put(wingardiumLeviosa.getName(), wingardiumLeviosa);
             settlement(wizard);
+            System.out.println("Your abilities have been improved\n");
             System.out.println("\n");
         }
         else {
