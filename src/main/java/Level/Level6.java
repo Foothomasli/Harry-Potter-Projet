@@ -1,7 +1,6 @@
 package Level;
-
 import    AllSpell.Sectumsempra;
-import    Character.Ennemy.Boss.Dolores_Ombrage;
+import Character.Ennemy.Boss.Mangemorts;
 import    Character.Ennemy.Empty_ennemy;
 import    Character.Ennemy.Ennemy;
 import    Character.Ennemy.Ennemy6;
@@ -15,7 +14,7 @@ import java.util.Scanner;
 public class Level6 {
 
     Ennemy[] ennemies = new Ennemy[3];
-    Ennemy boss = new Dolores_Ombrage();
+    Ennemy boss = new Mangemorts();
     boolean invalid_operation;
     Ennemy[] surviving_enemy = new Ennemy[3];
     public Level6(){
@@ -66,7 +65,7 @@ public class Level6 {
         }
         System.out.print("LifePotion: "+potion1+"  "+"MagicPotion: "+potion2+"  "+"StrengtheningPotion: "+potion3+"  ");
         System.out.print("                   ");
-        System.out.print(boss.name + ": " + boss.hp);
+        System.out.print(boss.name + ": " + boss.hp + "    " + "State: " + boss.state);
 
     }
 
@@ -120,9 +119,13 @@ public class Level6 {
 
     public void attack_boss(Wizard wizard){
 
-        Sectumsempra sectumsempra = new Sectumsempra();
-        wizard.mp = wizard.mp - 10;
-        wizard.attack(boss);
+        if(boss.state.equals("Weak")){
+
+            wizard.attack(boss);
+        }
+        else {
+            System.out.println("You cannot attack the boss, he is not weak.");
+        }
     }
 
     public void magic_attack(Wizard wizard){
@@ -154,11 +157,13 @@ public class Level6 {
 
     public void magic_attack_boss(Wizard wizard){
 
-        Sectumsempra sectumsempra = new Sectumsempra();
-        wizard.mp = wizard.mp - 10;
-        wizard.magicattack(boss);
-        Random random = new Random();
-        int random_number = random.nextInt(99) + 1;
+        if(boss.state.equals("Weak")){
+
+            wizard.magicattack(boss);
+        }
+        else {
+            System.out.println("You cannot attack the boss, he is not weak.");
+        }
     }
 
     public void ennemy_attack(Wizard wizard){
@@ -195,8 +200,10 @@ public class Level6 {
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
-        System.out.println(" ");
-        System.out.println(" ");
+        System.out.println("\n");
+        wizard.useSpell(boss);
+        affiche_boss(wizard);
+        System.out.println("\n");
         System.out.println("Choose what you want to do : 1. attack  2. magicattack  3. use the potion");
         int a = scanner.nextInt();
         this.invalid_operation = false;
@@ -227,9 +234,6 @@ public class Level6 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
-
-        System.out.println("You have learned Sectumsempra");
-
     }
 
     public void settlement_boss(Wizard wizard){
@@ -273,9 +277,14 @@ public class Level6 {
             } while (this.invalid_operation);
             ennemy_attack(wizard);
             System.out.println("The enemy has attacked you.");
+            boss.state = "null";
             System.out.println("\n");
         }
         if(wizard.hp > 0){
+
+            System.out.println("You learned Sectumsempra");
+            Sectumsempra sectumsempra = new Sectumsempra();
+            wizard.spell.put(sectumsempra.getName(), sectumsempra);
             System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
@@ -288,7 +297,7 @@ public class Level6 {
     public void boss_level(Wizard wizard){
 
         Random random = new Random();
-        System.out.println("You met Mangemorts\n");
+        System.out.println("You met Mangemorts. You need to use a spell to weaken him, otherwise you can't attack him.\n");
         while( boss.hp > 0 && wizard.hp > 0){
 
             do {
@@ -296,6 +305,7 @@ public class Level6 {
             } while (this.invalid_operation);
             boss.attack(wizard);
             System.out.println("Boss has attacked you.");
+            boss.state = "null";
             System.out.println("\n");
 
         }

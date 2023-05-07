@@ -1,5 +1,7 @@
 package Level;
 
+import AllSpell.Expelliarmus;
+import AllSpell.Sectumsempra;
 import    Character.Ennemy.Boss.Bellatrix_Lestrange;
 import    Character.Ennemy.Boss.Real_Voldemort;
 import    Character.Ennemy.Empty_ennemy;
@@ -317,6 +319,9 @@ public class Level7 {
             System.out.println("\n");
         }
         if(wizard.hp > 0){
+            System.out.println("You learned Expelliarmus");
+            Expelliarmus expelliarmus = new Expelliarmus();
+            wizard.spell.put(expelliarmus.getName(), expelliarmus);
             System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");

@@ -14,12 +14,12 @@ public class WingardiumLeviosa extends Spell{
         System.out.println("You use Wingardium Leviosa to "+ ennemy.name + "\n");
         Random random = new Random();
         int a = random.nextInt(99)+1;
-        if(wizard.mp >= 10){
+        if(wizard.mp >= 5){
 
-            if(a>20){
+            if(a <= 30){
 
                 ennemy.state = "Floating";
-                wizard.mp = wizard.mp - 10;
+                wizard.mp = wizard.mp - 5;
                 System.out.println("You successfully used the spell");
                 return true;
             }
@@ -27,12 +27,14 @@ public class WingardiumLeviosa extends Spell{
 
                 if(wizard.house.equals("Ravenclaw")){
                     System.out.println("You successfully used the spell");
+                    ennemy.state = "Floating";
+                    wizard.mp = wizard.mp - 5;
                     return true;
                 }
                 else {
 
                     System.out.println("Your spell has failed.");
-                    wizard.mp = wizard.mp - 10;
+                    wizard.mp = wizard.mp - 5;
                     return false;
                 }
             }

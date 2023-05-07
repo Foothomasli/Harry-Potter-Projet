@@ -304,7 +304,7 @@ public class Level2 {
                     invalid_operation = wizard.useSpell(boss);
                     System.out.println("\n");
                 }while (!invalid_operation);
-
+                System.out.println("You have successfully pulled out a tusk.");
                 System.out.println("You pulled out Basilic's tooth and destroyed Tom Jedusor's diary. \n");
             }
             settlement_boss(wizard);

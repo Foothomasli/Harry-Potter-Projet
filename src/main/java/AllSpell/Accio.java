@@ -13,21 +13,24 @@ public class Accio extends Spell{
 
         Random random = new Random();
         int a = random.nextInt(99)+1;
-        if(wizard.mp >= 10) {
+        if(wizard.mp >= 5) {
 
             if (a <= 30) {
-                System.out.println("You have successfully pulled out a tusk.");
+                System.out.println("You have successfully used the spell.");
+                wizard.mp = wizard.mp - 5;
                 return true;
             }
             else {
 
                 if (wizard.house.equals("Ravenclaw")) {
 
-                    System.out.println("You have successfully pulled out a tusk.");
+                    System.out.println("You have successfully used the spell.");
+                    wizard.mp = wizard.mp - 5;
                     return true;
 
                 } else {
                     System.out.println("The spell has failed, please try again.");
+                    wizard.mp = wizard.mp - 5;
                     return false;
                 }
             }

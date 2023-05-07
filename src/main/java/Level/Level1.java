@@ -205,8 +205,7 @@ public class Level1 {
         System.out.println("\n");
         wizard.useSpell(boss);
         affiche_boss(wizard);
-        System.out.println(" ");
-        System.out.println(" ");
+        System.out.println("\n");
         System.out.println("Choose what you want to do : 1. attack  2. magicattack  3. use the potion");
         int a = scanner.nextInt();
         this.invalid_operation = false;
@@ -217,6 +216,8 @@ public class Level1 {
             default -> {
                 System.out.println("This operation is invalid, please select action again.\n");
                 this.invalid_operation = true;
+                wizard.mp = wizard.mp + 5;
+                boss.state = "null";
             }
         }
     }

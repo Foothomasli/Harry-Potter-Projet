@@ -1,7 +1,5 @@
 package Level;
 
-import    AllSpell.Accio;
-import    AllSpell.Invisibility;
 import    Character.Ennemy.Boss.Peter_Pettigrow;
 import    Character.Ennemy.Boss.Voldemort;
 import    Character.Ennemy.Empty_ennemy;
@@ -362,8 +360,12 @@ public class Level4 {
         }
         if(wizard.hp > 0){
 
-
-            System.out.println("You managed to suck Portkey towards you and escaped.");
+            System.out.println("You'll be able to escape in no time, now you need to get the key.");
+            do {
+                invalid_operation = wizard.useSpell(boss[0]);
+                System.out.println("\n");
+            }while (!invalid_operation);
+            System.out.println("You got the key and escaped successfully.");
             System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);
         }

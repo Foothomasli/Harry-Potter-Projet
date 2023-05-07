@@ -28,10 +28,14 @@ public class Real_Voldemort extends Ennemy {
         int a = random.nextInt(100);
         if(a < 12){
 
-            Avada_Kedavra avada_kedavra = new Avada_Kedavra();
-            avada_kedavra.usespell(wizard);
-            Expelliarmus expelliarmus = new Expelliarmus();
-            expelliarmus.usespell(wizard);
+            this.skill(wizard);
+            System.out.println("Voldemort uses Avada Kedavra , You need to use Expelliarmus to protect yourself, otherwise you will die instantly.");
+            if(wizard.mp >=5){
+                wizard.useSpell(this);
+            }
+            else {
+                wizard.hp = 0;
+            }
         }
         else {
 

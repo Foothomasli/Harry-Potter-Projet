@@ -1,7 +1,7 @@
 package Level;
-
 import    AllSpell.Expecto_Patronum;
 import    Character.Ennemy.Boss.Basilic;
+import Character.Ennemy.Boss.Détraqueurs;
 import    Character.Ennemy.Empty_ennemy;
 import    Character.Ennemy.Ennemy;
 import    Character.Ennemy.Ennemy3;
@@ -9,13 +9,12 @@ import    Character.Wizard;
 import    Potion.LifePotion;
 import    Potion.MagicPotion;
 import    Potion.StrengtheningPotion;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Level3 {
 
     Ennemy[] ennemies = new Ennemy[3];
-    Ennemy boss = new Basilic();
+    Ennemy boss = new Détraqueurs();
     boolean invalid_operation;
     Ennemy[] surviving_enemy = new Ennemy[3];
 
@@ -66,7 +65,7 @@ public class Level3 {
         }
         System.out.print("LifePotion: "+potion1+"  "+"MagicPotion: "+potion2+"  "+"StrengtheningPotion: "+potion3+"  ");
         System.out.print("                   ");
-        System.out.print(boss.name + ": " + boss.hp);
+        System.out.print(boss.name + ": " + boss.hp + "    " + "State: " + boss.state);
 
     }
 
@@ -92,6 +91,7 @@ public class Level3 {
             }
         }
     }
+
     public void attack(Wizard wizard){
 
         surviving_enemy_nb();
@@ -120,7 +120,13 @@ public class Level3 {
 
     public void attack_boss(Wizard wizard){
 
-        wizard.attack(boss);
+        if(boss.state.equals("Oppressed")){
+
+            wizard.attack(boss);
+        }
+        else {
+            System.out.println("You cannot attack the boss, he is not oppressed.");
+        }
     }
 
     public void magic_attack(Wizard wizard){
@@ -152,7 +158,13 @@ public class Level3 {
 
     public void magic_attack_boss(Wizard wizard){
 
-        wizard.magicattack(boss);
+        if(boss.state.equals("Oppressed")){
+
+            wizard.magicattack(boss);
+        }
+        else {
+            System.out.println("You cannot attack the boss, he is not oppressed.");
+        }
     }
 
     public void ennemy_attack(Wizard wizard){
@@ -189,8 +201,10 @@ public class Level3 {
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
-        System.out.println(" ");
-        System.out.println(" ");
+        System.out.println("\n");
+        wizard.useSpell(boss);
+        affiche_boss(wizard);
+        System.out.println("\n");
         System.out.println("Choose what you want to do : 1. attack  2. magicattack  3. use the potion");
         int a = scanner.nextInt();
         this.invalid_operation = false;
@@ -200,6 +214,8 @@ public class Level3 {
             case 3 -> {wizard.usePotion(); System.out.println("You used a potion.");}
             default -> {
                 System.out.println("This operation is invalid, please select action again.\n");
+                wizard.mp = wizard.mp + 5;
+                boss.state = "null";
                 this.invalid_operation = true;
             }
         }
@@ -221,9 +237,6 @@ public class Level3 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
-
-        System.out.println("You have learned Expecto Patronum");
-
     }
 
     public void settlement_boss(Wizard wizard){
@@ -256,6 +269,10 @@ public class Level3 {
             System.out.println("\n");
         }
         if(wizard.hp > 0){
+
+            System.out.println("You learned Expecto Patronum");
+            Expecto_Patronum expecto_patronum = new Expecto_Patronum();
+            wizard.spell.put(expecto_patronum.getName(), expecto_patronum);
             System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
@@ -267,30 +284,18 @@ public class Level3 {
 
     public void boss_level(Wizard wizard){
 
-        Random random = new Random();
-        int a = random.nextInt(99)+1;
         System.out.println("You met Détraqueurs\n");
         while( boss.hp > 0 && wizard.hp > 0){
 
             do {
                 operater_boss(wizard);
             } while (this.invalid_operation);
-            if (a < 80) {
-
-                boss.attack(wizard);
-                System.out.println("Boss has attacked you.");
-            }
-            else {
-                boss.skill(wizard);
-                System.out.println("The enemy has used a skill.");
-            }
-            System.out.println("\n");
-
+            boss.attack(wizard);
+            boss.state = "null";
+            System.out.println("Boss has attacked you.\n");
         }
         if(wizard.hp > 0){
 
-            Expecto_Patronum expecto_patronum = new Expecto_Patronum();
-            expecto_patronum.usespell();
             System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);
         }
@@ -298,7 +303,4 @@ public class Level3 {
             System.out.println("You died, game over");
         }
     }
-
-
-
 }

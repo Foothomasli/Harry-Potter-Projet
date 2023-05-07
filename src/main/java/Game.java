@@ -30,7 +30,7 @@ public class Game{
         Level7 level7 = new Level7();
 
 
-
+        /*
         level1.normal_level(wizard);
 
         if (wizard.hp > 0){
@@ -44,7 +44,7 @@ public class Game{
         if (wizard.hp > 0){
             level2.boss_level(wizard);
         }
-        /*
+
         if (wizard.hp > 0){
             level3.normal_level(wizard);
         }
@@ -59,8 +59,8 @@ public class Game{
 
         if (wizard.hp > 0){
             level4.boss_level(wizard);
-        }
-
+        }*/
+        /*
         if (wizard.hp > 0){
             level5.normal_level(wizard);
         }
@@ -68,7 +68,7 @@ public class Game{
         if (wizard.hp > 0){
             level5.boss_level(wizard);
         }
-
+        */
 
         if (wizard.hp > 0){
             level6.normal_level(wizard);
@@ -77,7 +77,7 @@ public class Game{
         if (wizard.hp > 0){
             level6.boss_level(wizard);
         }
-
+        /*
         if (wizard.hp > 0){
             level7.normal_level(wizard);
         }
@@ -91,10 +91,6 @@ public class Game{
             System.out.println("You win the game");
         }
         */
-
-
-
-
     }
 
 }
