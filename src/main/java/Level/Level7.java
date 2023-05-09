@@ -304,7 +304,6 @@ public class Level7 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
-        System.out.println(" You learned Expelliarmus");
     }
 
     public void normal_level(Wizard wizard){

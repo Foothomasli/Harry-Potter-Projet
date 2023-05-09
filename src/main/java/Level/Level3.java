@@ -259,7 +259,8 @@ public class Level3 {
 
     public void normal_level(Wizard wizard){
 
-        System.out.println("You entered the third level\n");
+        System.out.println("You have successfully enrolled in your third year!\n");
+        System.out.println("To improve abilities, defeat these enemies.");
         while( (ennemies[0].hp > 0 || ennemies[1].hp > 0 || ennemies[2].hp > 0) && wizard.hp > 0) {
             do {
                 operater(wizard);

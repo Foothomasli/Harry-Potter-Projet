@@ -1,6 +1,6 @@
 package Potion;
 
-public class Empty {
+public class Quantity_Detector {
 
     public boolean LifePotionVide(Potion[] potions){
         for (Potion potion : potions) {

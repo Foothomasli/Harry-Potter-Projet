@@ -1,6 +1,6 @@
 import java.util.Random;
 import Character.Wizard;
-public class House {
+public class SortingHat {
 
     public void SortingHat(Wizard wizard){
 

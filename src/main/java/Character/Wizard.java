@@ -109,24 +109,24 @@ public class Wizard {
     }
     public void usePotion(){
         Scanner scanner = new Scanner(System.in);
-        Empty empty = new Empty();
+        Quantity_Detector quantityDetector = new Quantity_Detector();
         System.out.println("Which potion do you want to use ? 1.LifePotion 2.MagicPotion 3.StrengtheningPotion");
         int Potion = scanner.nextInt();
         switch (Potion) {
             case 1 -> {
-                if(empty.LifePotionVide(potions)){
+                if(quantityDetector.LifePotionVide(potions)){
                     System.out.println("This potion has run out,you wasted this opportunity");
                 }
                 else {useLifePotion();}}
 
             case 2 -> {
-                if(empty.MagicPotionVide(potions)){
+                if(quantityDetector.MagicPotionVide(potions)){
                     System.out.println("This potion has run out,you wasted this opportunity");
                 }
                 else {useMagicPotion();}}
 
             case 3 -> {
-                if(empty.StrengtheningPotionVide(potions)){
+                if(quantityDetector.StrengtheningPotionVide(potions)){
                     System.out.println("This potion has run out,you wasted this opportunity");}
                 else {useStrengtheningPotion();}}
             default -> System.out.println("You don't have this potion,you wasted this opportunity");

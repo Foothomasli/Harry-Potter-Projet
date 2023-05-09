@@ -1,5 +1,4 @@
 
-import AllSpell.WingardiumLeviosa;
 import    Character.Wizard;
 import    Level.*;
 
@@ -14,8 +13,8 @@ public class Game{
         Wizard wizard = new Wizard();
 
         //分配学院
-        House house = new House();
-        house.SortingHat(wizard);
+        SortingHat sortingHat = new SortingHat();
+        sortingHat.SortingHat(wizard);
         System.out.println("Your house is : " + wizard.house + "\n");
 
         System.out.println("Game start");
@@ -92,7 +91,6 @@ public class Game{
         }
         */
     }
-
 }
 
 

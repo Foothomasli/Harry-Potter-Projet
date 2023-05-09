@@ -10,6 +10,7 @@ import   Potion.MagicPotion;
 import   Potion.StrengtheningPotion;
 import   java.util.Scanner;
 
+
 public class Level1 {
 
     Ennemy[] ennemies = new Ennemy[3];
@@ -92,6 +93,7 @@ public class Level1 {
             }
         }
     }
+
 
     public void attack(Wizard wizard){
 
@@ -242,7 +244,8 @@ public class Level1 {
 
     public void normal_level(Wizard wizard){
 
-        System.out.println("You entered the first level\n");
+        System.out.println("You have successfully enrolled in Hogwarts, now begin your first year of studies.\n");
+        System.out.println("To improve your abilities, defeat these enemies.");
         while( (ennemies[0].hp > 0 || ennemies[1].hp > 0 || ennemies[2].hp > 0) && wizard.hp > 0) {
             do {
                 operater(wizard);
@@ -274,7 +277,7 @@ public class Level1 {
                 operater_boss(wizard);
             } while (this.invalid_operation);
             boss.attack(wizard);
-            System.out.println("Boss has attacked you.");
+            System.out.println("Troll has attacked you.");
             boss.state = "null";
             System.out.println("\n");
 
@@ -282,11 +285,11 @@ public class Level1 {
         if(wizard.hp > 0){
 
             settlement(wizard);
+            System.out.println("Congratulations on successfully passing your first year!");
             System.out.println("Your abilities have been improved\n");
         }
         else {
             System.out.println("You died, game over");
         }
     }
-
 }
