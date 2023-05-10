@@ -13,8 +13,8 @@ public class Wizard {
     public String name;
     public double hp = 200;
     public double hpmax = 200;
-    public double mp = 50;
-    public double mpmax = 50;
+    public double mp = 100;
+    public double mpmax = 100;
     public double defense = 10;
     public double Temporary_defense = 0;
     public Wande wande;

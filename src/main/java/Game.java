@@ -29,8 +29,6 @@ public class Game{
         Level7 level7 = new Level7();
 
 
-
-
         level1.normal_level(wizard);
 
         if (wizard.hp > 0){
