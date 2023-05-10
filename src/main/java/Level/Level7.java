@@ -330,7 +330,6 @@ public class Level7 {
             System.out.println("You learned Expelliarmus");
             Expelliarmus expelliarmus = new Expelliarmus();
             wizard.spell.put(expelliarmus.getName(), expelliarmus);
-            System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
         }

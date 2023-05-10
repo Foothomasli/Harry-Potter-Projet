@@ -31,6 +31,7 @@ public class Game{
 
         level1.normal_level(wizard);
 
+
         if (wizard.hp > 0){
             level1.boss_level(wizard);
         }

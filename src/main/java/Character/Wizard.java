@@ -11,8 +11,8 @@ import AllSpell.*;
 public class Wizard {
 
     public String name;
-    public double hp = 200;
-    public double hpmax = 200;
+    public double hp = 2000;
+    public double hpmax = 2000;
     public double mp = 100;
     public double mpmax = 100;
     public double defense = 10;
@@ -132,7 +132,6 @@ public class Wizard {
             default -> System.out.println("You don't have this potion,you wasted this opportunity");
         }
     }
-
     public boolean useSpell(Ennemy ennemy){
 
         System.out.println("You already learned these spell:\n");

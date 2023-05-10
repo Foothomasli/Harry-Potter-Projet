@@ -296,7 +296,6 @@ public class Level5 {
             System.out.println("\n");
         }
         if(wizard.hp > 0){
-            System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
         }
@@ -322,7 +321,6 @@ public class Level5 {
         if(wizard.hp > 0){
 
             System.out.println("You've collected enough fireworks, and the party's on!");
-            System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);
         }
         else {

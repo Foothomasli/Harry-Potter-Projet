@@ -280,7 +280,6 @@ public class Level2 {
             System.out.println("You learned new spell : Accio");
             Accio accio = new Accio();
             wizard.spell.put(accio.getName(), accio);
-            System.out.println("Your abilities have been improved");
             settlement(wizard);
             System.out.println("\n");
         }
@@ -313,10 +312,8 @@ public class Level2 {
             if(wizard.house.equals("Gryffindor")){
 
                 System.out.println("You destroyed Tom Jedusor's journal with the Sword of Gryffindor. \n");
-                System.out.println("Your abilities have been improved");
             }
             else {
-
                 do {
                     System.out.println("You need to use the spell Accio to get Basilic's tooth");
                     invalid_operation = wizard.useSpell(boss);

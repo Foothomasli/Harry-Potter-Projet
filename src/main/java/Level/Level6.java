@@ -302,7 +302,6 @@ public class Level6 {
             System.out.println("You learned Sectumsempra");
             Sectumsempra sectumsempra = new Sectumsempra();
             wizard.spell.put(sectumsempra.getName(), sectumsempra);
-            System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
         }
@@ -326,8 +325,6 @@ public class Level6 {
 
         }
         if(wizard.hp > 0){
-
-            System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);
         }
         else {

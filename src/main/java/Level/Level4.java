@@ -352,7 +352,6 @@ public class Level4 {
             System.out.println("\n");
         }
         if(wizard.hp > 0){
-            System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
         }
@@ -383,7 +382,6 @@ public class Level4 {
                 System.out.println("\n");
             }while (!invalid_operation);
             System.out.println("You got the key and escaped successfully.");
-            System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);
         }
         else {

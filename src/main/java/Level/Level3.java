@@ -293,7 +293,6 @@ public class Level3 {
             System.out.println("You learned Expecto Patronum");
             Expecto_Patronum expecto_patronum = new Expecto_Patronum();
             wizard.spell.put(expecto_patronum.getName(), expecto_patronum);
-            System.out.println("Your abilities have been improved\n");
             settlement(wizard);
             System.out.println("\n");
         }
@@ -315,8 +314,6 @@ public class Level3 {
             System.out.println("Boss has attacked you.\n");
         }
         if(wizard.hp > 0){
-
-            System.out.println("Your abilities have been improved\n");
             settlement_boss(wizard);
         }
         else {
