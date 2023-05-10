@@ -290,11 +290,17 @@ public class Level7 {
 
     public void settlement(Wizard wizard){
 
-        wizard.hpmax = wizard.hpmax + 50;
-        wizard.mpmax = wizard.mpmax + 25;
-        wizard.defense = wizard.defense + 5;
-        wizard.hp = wizard.hpmax;
-        wizard.mp = wizard.mpmax;
+        System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> {
+                wizard.hpmax = wizard.hpmax + 50;
+                wizard.mpmax = wizard.mpmax + 25;
+            }
+            case 2 -> wizard.defense = wizard.defense + 5;
+            case 3 -> wizard.wande.size = wizard.wande.size + 5;
+        }
         for(int i = 0; i<5; i++){
             wizard.potions[i] = new LifePotion();
         }
@@ -304,11 +310,14 @@ public class Level7 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
+        wizard.hp = wizard.hpmax;
+        wizard.mp = wizard.mpmax;
     }
 
     public void normal_level(Wizard wizard){
 
-        System.out.println("You entered the seventh level\n");
+        System.out.println("This is your last year of study, so get ready for the final test.\n");
+        System.out.println("To improve abilities, defeat these enemies.");
         while( (ennemies[0].hp > 0 || ennemies[1].hp > 0 || ennemies[2].hp > 0) && wizard.hp > 0) {
             do {
                 operater(wizard);
@@ -340,7 +349,7 @@ public class Level7 {
             wizard.wande.size = wizard.wande.size - 20;
         }
 
-        while( boss[0].hp > 0 && boss[1].hp >0 && wizard.hp > 0){
+        while( (boss[0].hp > 0 || boss[1].hp >0) && wizard.hp > 0){
 
             do {
                 operater_boss(wizard);

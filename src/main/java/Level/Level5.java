@@ -231,11 +231,17 @@ public class Level5 {
 
     public void settlement(Wizard wizard){
 
-        wizard.hpmax = wizard.hpmax + 50;
-        wizard.mpmax = wizard.mpmax + 25;
-        wizard.defense = wizard.defense + 5;
-        wizard.hp = wizard.hpmax;
-        wizard.mp = wizard.mpmax;
+        System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> {
+                wizard.hpmax = wizard.hpmax + 50;
+                wizard.mpmax = wizard.mpmax + 25;
+            }
+            case 2 -> wizard.defense = wizard.defense + 5;
+            case 3 -> wizard.wande.size = wizard.wande.size + 5;
+        }
         for(int i = 0; i<5; i++){
             wizard.potions[i] = new LifePotion();
         }
@@ -245,18 +251,24 @@ public class Level5 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
-
-        System.out.println("You have learned Expecto Patronum");
+        wizard.hp = wizard.hpmax;
+        wizard.mp = wizard.mpmax;
 
     }
 
     public void settlement_boss(Wizard wizard){
 
-        wizard.hpmax = wizard.hpmax + 50;
-        wizard.mpmax = wizard.mpmax + 25;
-        wizard.defense = wizard.defense + 5;
-        wizard.hp = wizard.hpmax;
-        wizard.mp = wizard.mpmax;
+        System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> {
+                wizard.hpmax = wizard.hpmax + 50;
+                wizard.mpmax = wizard.mpmax + 25;
+            }
+            case 2 -> wizard.defense = wizard.defense + 5;
+            case 3 -> wizard.wande.size = wizard.wande.size + 5;
+        }
         for(int i = 0; i<5; i++){
             wizard.potions[i] = new LifePotion();
         }
@@ -266,6 +278,8 @@ public class Level5 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
+        wizard.hp = wizard.hpmax;
+        wizard.mp = wizard.mpmax;
     }
 
     public void normal_level(Wizard wizard){

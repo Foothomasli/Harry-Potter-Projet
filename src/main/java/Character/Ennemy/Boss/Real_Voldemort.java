@@ -26,7 +26,7 @@ public class Real_Voldemort extends Ennemy {
 
         Random random = new Random();
         int a = random.nextInt(100);
-        if(a < 12){
+        if(a < 40){
 
             this.skill(wizard);
             System.out.println("Voldemort uses Avada Kedavra , You need to use Expelliarmus to protect yourself, otherwise you will die instantly.");

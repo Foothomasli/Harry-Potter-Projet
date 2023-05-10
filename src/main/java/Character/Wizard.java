@@ -11,8 +11,8 @@ import AllSpell.*;
 public class Wizard {
 
     public String name;
-    public double hp = 10000;
-    public double hpmax = 100;
+    public double hp = 200;
+    public double hpmax = 200;
     public double mp = 50;
     public double mpmax = 50;
     public double defense = 10;

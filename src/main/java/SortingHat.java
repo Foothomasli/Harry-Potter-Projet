@@ -2,7 +2,7 @@ import java.util.Random;
 import Character.Wizard;
 public class SortingHat {
 
-    public void SortingHat(Wizard wizard){
+    public void sortingHat(Wizard wizard){
 
             Random random = new Random();
             int a = random.nextInt(100)+1;

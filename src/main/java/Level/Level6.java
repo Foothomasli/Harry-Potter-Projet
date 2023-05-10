@@ -220,11 +220,17 @@ public class Level6 {
 
     public void settlement(Wizard wizard){
 
-        wizard.hpmax = wizard.hpmax + 50;
-        wizard.mpmax = wizard.mpmax + 25;
-        wizard.defense = wizard.defense + 5;
-        wizard.hp = wizard.hpmax;
-        wizard.mp = wizard.mpmax;
+        System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> {
+                wizard.hpmax = wizard.hpmax + 50;
+                wizard.mpmax = wizard.mpmax + 25;
+            }
+            case 2 -> wizard.defense = wizard.defense + 5;
+            case 3 -> wizard.wande.size = wizard.wande.size + 5;
+        }
         for(int i = 0; i<5; i++){
             wizard.potions[i] = new LifePotion();
         }
@@ -234,15 +240,23 @@ public class Level6 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
+        wizard.hp = wizard.hpmax;
+        wizard.mp = wizard.mpmax;
     }
 
     public void settlement_boss(Wizard wizard){
 
-        wizard.hpmax = wizard.hpmax + 50;
-        wizard.mpmax = wizard.mpmax + 25;
-        wizard.defense = wizard.defense + 5;
-        wizard.hp = wizard.hpmax;
-        wizard.mp = wizard.mpmax;
+        System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> {
+                wizard.hpmax = wizard.hpmax + 50;
+                wizard.mpmax = wizard.mpmax + 25;
+            }
+            case 2 -> wizard.defense = wizard.defense + 5;
+            case 3 -> wizard.wande.size = wizard.wande.size + 5;
+        }
         for(int i = 0; i<5; i++){
             wizard.potions[i] = new LifePotion();
         }
@@ -252,12 +266,14 @@ public class Level6 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
+        wizard.hp = wizard.hpmax;
+        wizard.mp = wizard.mpmax;
 
         if(wizard.house.equals("Slytherin")){
 
             Random random = new Random();
-            int a = random.nextInt(10)+1;
-            if(a > 5){
+            int b = random.nextInt(10)+1;
+            if(b > 5){
                 System.out.println("You joined Mangemorts");
                 wizard.hp = wizard.hp + 100;
                 wizard.mp = wizard.mp - 100;
@@ -297,7 +313,6 @@ public class Level6 {
 
     public void boss_level(Wizard wizard){
 
-        Random random = new Random();
         System.out.println("You met Mangemorts. You need to use a spell to weaken him, otherwise you can't attack him.\n");
         while( boss.hp > 0 && wizard.hp > 0){
 

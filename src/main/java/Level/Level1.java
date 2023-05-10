@@ -13,10 +13,10 @@ import   java.util.Scanner;
 
 public class Level1 {
 
-    Ennemy[] ennemies = new Ennemy[3];
-    Ennemy boss = new Troll();
-    boolean invalid_operation;
-    Ennemy[] surviving_enemy = new Ennemy[3];
+    private Ennemy[] ennemies = new Ennemy[3];
+    private Ennemy boss = new Troll();
+    private boolean invalid_operation;
+    private Ennemy[] surviving_enemy = new Ennemy[3];
 
 
     public Level1(){
@@ -27,9 +27,9 @@ public class Level1 {
         }
     }
 
-    public void affiche(Wizard wizard){
+    private void affiche(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -51,9 +51,9 @@ public class Level1 {
         }
     }
 
-    public void affiche_boss(Wizard wizard){
+    private void affiche_boss(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -70,7 +70,7 @@ public class Level1 {
 
     }
 
-    void surviving_enemy_nb(){
+    private void surviving_enemy_nb(){
 
         for(int i = 0; i < surviving_enemy.length; i++){
 
@@ -94,8 +94,7 @@ public class Level1 {
         }
     }
 
-
-    public void attack(Wizard wizard){
+    private void attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -121,7 +120,7 @@ public class Level1 {
         }
     }
 
-    public void attack_boss(Wizard wizard){
+    private void attack_boss(Wizard wizard){
 
         if(boss.state.equals("Floating")){
 
@@ -132,7 +131,7 @@ public class Level1 {
         }
     }
 
-    public void magic_attack(Wizard wizard){
+    private void magic_attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -159,7 +158,7 @@ public class Level1 {
         }
     }
 
-    public void magic_attack_boss(Wizard wizard){
+    private void magic_attack_boss(Wizard wizard){
 
         if(boss.state.equals("Floating")){
 
@@ -170,7 +169,7 @@ public class Level1 {
         }
     }
 
-    public void ennemy_attack(Wizard wizard){
+    private void ennemy_attack(Wizard wizard){
 
         for (Ennemy ennemy : ennemies) {
 
@@ -180,7 +179,7 @@ public class Level1 {
         }
     }
 
-    public void operater( Wizard wizard){
+    private void operater( Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche(wizard);
@@ -200,7 +199,7 @@ public class Level1 {
         }
     }
 
-    public void operater_boss(Wizard wizard){
+    private void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
@@ -224,13 +223,19 @@ public class Level1 {
         }
     }
 
-    public void settlement(Wizard wizard){
+    private void settlement(Wizard wizard){
 
-        wizard.hpmax = wizard.hpmax + 50;
-        wizard.mpmax = wizard.mpmax + 25;
-        wizard.defense = wizard.defense + 5;
-        wizard.hp = wizard.hpmax;
-        wizard.mp = wizard.mpmax;
+        System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> {
+                wizard.hpmax = wizard.hpmax + 50;
+                wizard.mpmax = wizard.mpmax + 25;
+            }
+            case 2 -> wizard.defense = wizard.defense + 5;
+            case 3 -> wizard.wande.size = wizard.wande.size + 5;
+        }
         for(int i = 0; i<5; i++){
             wizard.potions[i] = new LifePotion();
         }
@@ -240,6 +245,8 @@ public class Level1 {
         for(int i = 10; i<15; i++){
             wizard.potions[i] = new StrengtheningPotion();
         }
+        wizard.hp = wizard.hpmax;
+        wizard.mp = wizard.mpmax;
     }
 
     public void normal_level(Wizard wizard){

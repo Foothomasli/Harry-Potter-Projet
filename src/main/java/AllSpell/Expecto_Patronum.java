@@ -17,7 +17,7 @@ public class Expecto_Patronum extends Spell{
         int a = random.nextInt(99)+1;
         if(wizard.mp >= 5){
 
-            if(a <= 50){
+            if(a <= 70){
 
                 wizard.mp = wizard.mp - 5;
                 ennemy.state = "Oppressed";

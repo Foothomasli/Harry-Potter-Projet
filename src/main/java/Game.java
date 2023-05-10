@@ -14,7 +14,7 @@ public class Game{
 
         //分配学院
         SortingHat sortingHat = new SortingHat();
-        sortingHat.SortingHat(wizard);
+        sortingHat.sortingHat(wizard);
         System.out.println("Your house is : " + wizard.house + "\n");
 
         System.out.println("Game start");
@@ -29,7 +29,8 @@ public class Game{
         Level7 level7 = new Level7();
 
 
-        /*
+
+
         level1.normal_level(wizard);
 
         if (wizard.hp > 0){
@@ -57,9 +58,10 @@ public class Game{
         }
 
         if (wizard.hp > 0){
+
             level4.boss_level(wizard);
-        }*/
-        /*
+        }
+
         if (wizard.hp > 0){
             level5.normal_level(wizard);
         }
@@ -67,7 +69,7 @@ public class Game{
         if (wizard.hp > 0){
             level5.boss_level(wizard);
         }
-        */
+
 
         if (wizard.hp > 0){
             level6.normal_level(wizard);
@@ -76,7 +78,7 @@ public class Game{
         if (wizard.hp > 0){
             level6.boss_level(wizard);
         }
-        /*
+
         if (wizard.hp > 0){
             level7.normal_level(wizard);
         }
@@ -87,9 +89,9 @@ public class Game{
 
         if (wizard.hp > 0){
 
-            System.out.println("You win the game");
+            System.out.println("You have successfully defeated Voldemort, now you are the strongest wizard in the world!");
         }
-        */
+
     }
 }
 

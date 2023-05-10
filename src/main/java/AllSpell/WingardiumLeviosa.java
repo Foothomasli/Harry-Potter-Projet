@@ -16,7 +16,7 @@ public class WingardiumLeviosa extends Spell{
         int a = random.nextInt(99)+1;
         if(wizard.mp >= 5){
 
-            if(a <= 30){
+            if(a <= 50){
 
                 ennemy.state = "Floating";
                 wizard.mp = wizard.mp - 5;
