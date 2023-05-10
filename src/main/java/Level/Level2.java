@@ -15,10 +15,10 @@ import java.util.Scanner;
 
 
 public class Level2 {
-    Ennemy[] ennemies = new Ennemy[3];
-    Ennemy boss = new Basilic();
-    boolean invalid_operation;
-    Ennemy[] surviving_enemy = new Ennemy[3];
+    private Ennemy[] ennemies = new Ennemy[3];
+    private Ennemy boss = new Basilic();
+    private boolean invalid_operation;
+    private Ennemy[] surviving_enemy = new Ennemy[3];
 
     public Level2(){
 
@@ -28,9 +28,9 @@ public class Level2 {
         }
     }
 
-     void affiche(Wizard wizard){
+    private void affiche(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -52,9 +52,9 @@ public class Level2 {
         }
     }
 
-    void affiche_boss(Wizard wizard){
+    private void affiche_boss(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -71,7 +71,7 @@ public class Level2 {
 
     }
 
-    void surviving_enemy_nb(){
+    private void surviving_enemy_nb(){
 
         for(int i = 0; i < surviving_enemy.length; i++){
 
@@ -94,7 +94,7 @@ public class Level2 {
         }
     }
 
-    void attack(Wizard wizard){
+    private void attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -120,12 +120,12 @@ public class Level2 {
         }
     }
 
-    void attack_boss(Wizard wizard){
+    private void attack_boss(Wizard wizard){
 
         wizard.attack(boss);
     }
 
-    void magic_attack(Wizard wizard){
+    private void magic_attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -152,12 +152,12 @@ public class Level2 {
         }
     }
 
-    void magic_attack_boss(Wizard wizard){
+    private void magic_attack_boss(Wizard wizard){
 
         wizard.magicattack(boss);
     }
 
-    void ennemy_attack(Wizard wizard){
+    private void ennemy_attack(Wizard wizard){
 
         for (Ennemy ennemy : ennemies) {
 
@@ -167,7 +167,7 @@ public class Level2 {
         }
     }
 
-    void operater( Wizard wizard){
+    private void operater( Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche(wizard);
@@ -187,7 +187,7 @@ public class Level2 {
         }
     }
 
-    void operater_boss(Wizard wizard){
+    private void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
@@ -207,7 +207,7 @@ public class Level2 {
         }
     }
 
-    void settlement(Wizard wizard){
+    private void settlement(Wizard wizard){
 
         System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
         Scanner scanner = new Scanner(System.in);
@@ -238,7 +238,7 @@ public class Level2 {
         }
     }
 
-    void settlement_boss(Wizard wizard){
+    private void settlement_boss(Wizard wizard){
 
         System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
         Scanner scanner = new Scanner(System.in);
@@ -318,6 +318,7 @@ public class Level2 {
             else {
 
                 do {
+                    System.out.println("You need to use the spell Accio to get Basilic's tooth");
                     invalid_operation = wizard.useSpell(boss);
                     System.out.println("\n");
                 }while (!invalid_operation);

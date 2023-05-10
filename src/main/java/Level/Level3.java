@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 public class Level3 {
 
-    Ennemy[] ennemies = new Ennemy[3];
-    Ennemy boss = new Détraqueurs();
-    boolean invalid_operation;
-    Ennemy[] surviving_enemy = new Ennemy[3];
+    private Ennemy[] ennemies = new Ennemy[3];
+    private Ennemy boss = new Détraqueurs();
+    private boolean invalid_operation;
+    private Ennemy[] surviving_enemy = new Ennemy[3];
 
     public Level3(){
 
@@ -26,9 +26,9 @@ public class Level3 {
         }
     }
 
-    public void affiche(Wizard wizard){
+    private void affiche(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -50,9 +50,9 @@ public class Level3 {
         }
     }
 
-    public void affiche_boss(Wizard wizard){
+    private void affiche_boss(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -69,7 +69,7 @@ public class Level3 {
 
     }
 
-    void surviving_enemy_nb(){
+    private void surviving_enemy_nb(){
 
         for(int i = 0; i < surviving_enemy.length; i++){
 
@@ -92,7 +92,7 @@ public class Level3 {
         }
     }
 
-    public void attack(Wizard wizard){
+    private void attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -118,7 +118,7 @@ public class Level3 {
         }
     }
 
-    public void attack_boss(Wizard wizard){
+    private void attack_boss(Wizard wizard){
 
         if(boss.state.equals("Oppressed")){
 
@@ -129,7 +129,7 @@ public class Level3 {
         }
     }
 
-    public void magic_attack(Wizard wizard){
+    private void magic_attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -156,7 +156,7 @@ public class Level3 {
         }
     }
 
-    public void magic_attack_boss(Wizard wizard){
+    private void magic_attack_boss(Wizard wizard){
 
         if(boss.state.equals("Oppressed")){
 
@@ -167,7 +167,7 @@ public class Level3 {
         }
     }
 
-    public void ennemy_attack(Wizard wizard){
+    private void ennemy_attack(Wizard wizard){
 
         for (Ennemy ennemy : ennemies) {
 
@@ -177,7 +177,7 @@ public class Level3 {
         }
     }
 
-    public void operater( Wizard wizard){
+    private void operater( Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche(wizard);
@@ -197,11 +197,12 @@ public class Level3 {
         }
     }
 
-    public void operater_boss(Wizard wizard){
+    private void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
         System.out.println("\n");
+        System.out.println("You need to use the spell Expecto Patronum to attack Patronus");
         wizard.useSpell(boss);
         affiche_boss(wizard);
         System.out.println("\n");
@@ -221,7 +222,7 @@ public class Level3 {
         }
     }
 
-    public void settlement(Wizard wizard){
+    private void settlement(Wizard wizard){
 
         System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
         Scanner scanner = new Scanner(System.in);
@@ -249,7 +250,7 @@ public class Level3 {
         wizard.mp = wizard.mpmax;
     }
 
-    public void settlement_boss(Wizard wizard){
+    private void settlement_boss(Wizard wizard){
 
         System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
         Scanner scanner = new Scanner(System.in);

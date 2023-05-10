@@ -13,11 +13,11 @@ import java.util.Scanner;
 
 public class Level5 {
 
-    Ennemy[] ennemies = new Ennemy[3];
-    Ennemy boss = new Dolores_Ombrage();
-    boolean invalid_operation;
-    Ennemy[] surviving_enemy = new Ennemy[3];
-    int number_fireworks = 0;
+    private Ennemy[] ennemies = new Ennemy[3];
+    private Ennemy boss = new Dolores_Ombrage();
+    private boolean invalid_operation;
+    private Ennemy[] surviving_enemy = new Ennemy[3];
+    private int number_fireworks = 0;
 
     public Level5(){
 
@@ -27,9 +27,9 @@ public class Level5 {
         }
     }
 
-    public void affiche(Wizard wizard){
+    private void affiche(Wizard wizard){
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -51,10 +51,10 @@ public class Level5 {
         }
     }
 
-    public void affiche_boss(Wizard wizard){
+    private void affiche_boss(Wizard wizard){
 
 
-        System.out.print(wizard.name + " :" + wizard.hp + "   mp: " + wizard.mp + "     ");
+        System.out.print(wizard.name + " :" + wizard.hp + "   Mp: " + wizard.mp + "   Defense: " + wizard.defense + "   Attack: " + wizard.wande.size + "     ");
         int potion1 = 0 , potion2 = 0, potion3 = 0;
         for (int i = 0; i<wizard.potions.length; i++){
 
@@ -72,7 +72,7 @@ public class Level5 {
 
     }
 
-    void surviving_enemy_nb(){
+    private void surviving_enemy_nb(){
 
         for(int i = 0; i < surviving_enemy.length; i++){
 
@@ -94,7 +94,8 @@ public class Level5 {
             }
         }
     }
-    public void attack(Wizard wizard){
+
+    private void attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -120,7 +121,7 @@ public class Level5 {
         }
     }
 
-    public void attack_boss(Wizard wizard){
+    private void attack_boss(Wizard wizard){
 
         wizard.attack(boss);
         Random random = new Random();
@@ -137,7 +138,7 @@ public class Level5 {
 
     }
 
-    public void magic_attack(Wizard wizard){
+    private void magic_attack(Wizard wizard){
 
         surviving_enemy_nb();
         System.out.print("Choose the ennemy you want to attack: ");
@@ -164,7 +165,7 @@ public class Level5 {
         }
     }
 
-    public void magic_attack_boss(Wizard wizard){
+    private void magic_attack_boss(Wizard wizard){
 
         wizard.magicattack(boss);
         Random random = new Random();
@@ -179,7 +180,7 @@ public class Level5 {
         }
     }
 
-    public void ennemy_attack(Wizard wizard){
+    private void ennemy_attack(Wizard wizard){
 
         for (Ennemy ennemy : ennemies) {
 
@@ -189,7 +190,7 @@ public class Level5 {
         }
     }
 
-    public void operater( Wizard wizard){
+    private void operater( Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche(wizard);
@@ -209,7 +210,7 @@ public class Level5 {
         }
     }
 
-    public void operater_boss(Wizard wizard){
+    private void operater_boss(Wizard wizard){
 
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
@@ -229,7 +230,7 @@ public class Level5 {
         }
     }
 
-    public void settlement(Wizard wizard){
+    private void settlement(Wizard wizard){
 
         System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
         Scanner scanner = new Scanner(System.in);
@@ -256,7 +257,7 @@ public class Level5 {
 
     }
 
-    public void settlement_boss(Wizard wizard){
+    private void settlement_boss(Wizard wizard){
 
         System.out.println("Choose your reward: 1. Increase health and mana 2. Increase defense 3. Increase attack");
         Scanner scanner = new Scanner(System.in);
