@@ -5,7 +5,7 @@ import Character.Wizard;
 import java.util.Random;
 
 
-public class Expecto_Patronum extends Spell{
+public class Expecto_Patronum extends AbstractSpell {
 
     @Getter
     public String name = "Expecto Patronum";

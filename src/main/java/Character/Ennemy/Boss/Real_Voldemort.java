@@ -2,8 +2,8 @@ package Character.Ennemy.Boss;
 import Character.Ennemy.Ennemy;
 import Character.Wizard;
 import java.util.Random;
-import AllSpell.Avada_Kedavra;
-import AllSpell.Expelliarmus;
+import AllSpell.ForbiddenSpell;
+
 public class Real_Voldemort extends Ennemy {
 
     public Real_Voldemort(){
@@ -64,8 +64,8 @@ public class Real_Voldemort extends Ennemy {
     @Override
     public void skill( Wizard wizard) {
 
-        Avada_Kedavra avada_kedavra = new Avada_Kedavra();
-        avada_kedavra.usespell(wizard);
+        ForbiddenSpell forbiddenSpell = new ForbiddenSpell();
+        forbiddenSpell.usespell(wizard,this);
     }
 }
 

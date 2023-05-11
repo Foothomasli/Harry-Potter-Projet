@@ -6,7 +6,7 @@ import Character.Wizard;
 import java.util.Random;
 
 
-public class Accio extends Spell{
+public class Accio extends AbstractSpell {
 
     @Getter public String name = "Accio";
     public boolean usespell(Wizard wizard, Ennemy ennemy){
@@ -39,6 +39,5 @@ public class Accio extends Spell{
             System.out.println("You don't have enough magic");
             return false;
         }
-
     }
 }

@@ -5,8 +5,8 @@ import Character.Wizard;
 import Character.Ennemy.Ennemy;
 @Getter
 @Setter
-public abstract class Spell {
+public abstract class AbstractSpell {
 
-    public String name = "Accio";
+    public String name;
     public abstract boolean usespell(Wizard wizard, Ennemy ennemy);
 }

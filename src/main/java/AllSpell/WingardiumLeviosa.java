@@ -4,7 +4,7 @@ import Character.Wizard;
 import java.util.Random;
 import lombok.Getter;
 
-public class WingardiumLeviosa extends Spell{
+public class WingardiumLeviosa extends AbstractSpell {
 
     @Getter
     public String name = "Wingardium Leviosa";

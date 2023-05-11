@@ -4,7 +4,7 @@ import Character.Wizard;
 import lombok.Getter;
 
 
-public class Expelliarmus extends Spell{
+public class Expelliarmus extends AbstractSpell {
 
     @Getter String name = "Expelliarmus";
 

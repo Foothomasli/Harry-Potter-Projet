@@ -5,7 +5,7 @@ import Character.Wizard;
 
 import java.util.Random;
 
-public class Sectumsempra extends Spell{
+public class Sectumsempra extends AbstractSpell {
 
     @Getter String name = "Sectumsempra";
 

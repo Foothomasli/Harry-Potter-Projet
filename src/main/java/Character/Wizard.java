@@ -1,26 +1,30 @@
 package Character;
 import Character.Ennemy.*;
+import Pet.*;
 import Wande.*;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
+
 import Potion.*;
 import AllSpell.*;
 
-public class Wizard {
+public class Wizard extends Character{
 
     public String name;
-    public double hp = 2000;
-    public double hpmax = 2000;
+    public double hp = 200;
+    public double hpmax = 200;
     public double mp = 100;
     public double mpmax = 100;
     public double defense = 10;
     public double Temporary_defense = 0;
     public Wande wande;
     public String house;
+    public Pet pet;
     public Potion[] potions = new Potion[15];
-    public Map<String,Spell> spell = new HashMap<>();
+    public Map<String, AbstractSpell> spell = new HashMap<>();
 
     public Wizard(){
 
@@ -135,9 +139,9 @@ public class Wizard {
     public boolean useSpell(Ennemy ennemy){
 
         System.out.println("You already learned these spell:\n");
-        Iterator<Map.Entry<String,Spell>> iterator = spell.entrySet().iterator();
+        Iterator<Map.Entry<String, AbstractSpell>> iterator = spell.entrySet().iterator();
         while (iterator.hasNext()) {
-            Map.Entry<String,Spell> entry = iterator.next();
+            Map.Entry<String, AbstractSpell> entry = iterator.next();
             String name = entry.getKey();
             System.out.print("[" + name + "]" + "    ");
         }
@@ -145,8 +149,19 @@ public class Wizard {
         System.out.println("Which spell do you want to use ? Please spell it:");
         Scanner scanner = new Scanner(System.in);
         String a = scanner.nextLine();
-        Spell Spellused = spell.get(a);
-        return Spellused.usespell(this,ennemy);
+        AbstractSpell spellused = spell.get(a);
+        return spellused.usespell(this,ennemy);
+    }
+    public void getPet(){
+        System.out.println("Which pet do you want to choose；1.Cat  2. Mouse  3.Owl  4.Toad");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        switch (a) {
+            case 1 -> this.pet = new Cat();
+            case 2 -> this.pet = new Mouse();
+            case 3 -> this.pet = new Owl();
+            default -> this.pet = new Toad();
+        }
     }
 }
 

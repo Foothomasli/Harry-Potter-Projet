@@ -17,6 +17,9 @@ public class Game{
         sortingHat.sortingHat(wizard);
         System.out.println("Your house is : " + wizard.house + "\n");
 
+        wizard.getPet();
+        System.out.println("Your pet is "+ wizard.pet.name);
+
         System.out.println("Game start");
         System.out.println(" ");
 
