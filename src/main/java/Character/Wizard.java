@@ -14,8 +14,8 @@ import AllSpell.*;
 public class Wizard extends Character{
 
     public String name;
-    public double hp = 1000;
-    public double hpmax = 1000;
+    public double hp = 1500;
+    public double hpmax = 1500;
     public double mp = 100;
     public double mpmax = 100;
     public double defense = 10;
@@ -25,6 +25,7 @@ public class Wizard extends Character{
     public Pet pet;
     public Potion[] potions = new Potion[15];
     public Map<String, AbstractSpell> spell = new HashMap<>();
+    public int level;
 
     public Wizard(){
 
@@ -138,22 +139,7 @@ public class Wizard extends Character{
         }
     }
     public boolean useSpell(Ennemy ennemy){
-/*
         System.out.println("You already learned these spell:\n");
-        Iterator<Map.Entry<String, AbstractSpell>> iterator = spell.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, AbstractSpell> entry = iterator.next();
-            String name = entry.getKey();
-            System.out.print("[" + name + "]" + "    ");
-        }
-        System.out.println("\n");
-        System.out.println("Which spell do you want to use ? Please spell it:");
-        Scanner scanner = new Scanner(System.in);
-        String a = scanner.nextLine();
-        AbstractSpell spellused = spell.get(a);
-        return spellused.usespell(this,ennemy);*/
-
-            System.out.println("You already learned these spell:\n");
             Iterator<Map.Entry<String, AbstractSpell>> iterator = spell.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry<String, AbstractSpell> entry = iterator.next();
@@ -168,7 +154,8 @@ public class Wizard extends Character{
             if (spellused == null) {
                 System.out.println("You have not learned this spell yet. Please try again.");
                 return false;
-            } else {
+            }
+            else {
                 return spellused.usespell(this,ennemy);
             }
     }

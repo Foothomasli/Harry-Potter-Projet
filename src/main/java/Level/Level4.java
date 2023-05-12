@@ -362,7 +362,7 @@ public class Level4 {
 
     public void boss_level(Wizard wizard){
 
-
+        wizard.level = 4;
         System.out.println("You met Voldemort and Peter Pettigrow\n");
         while( (boss[0].hp > 0 || boss[1].hp >0) && wizard.hp > 0){
 

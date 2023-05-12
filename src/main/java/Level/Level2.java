@@ -289,6 +289,7 @@ public class Level2 {
     }
 
     public void boss_level(Wizard wizard){
+        wizard.level = 2;
         Random random = new Random();
         int a = random.nextInt(99)+1;
         System.out.println("You met Basilic\n");
