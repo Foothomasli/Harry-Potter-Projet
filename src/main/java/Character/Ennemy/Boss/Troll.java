@@ -29,7 +29,6 @@ public class Troll extends Ennemy {
 
 
     public double defense( double size , double defense ){
-
         double damage;
         damage = size - defense;
         if (damage < 0)

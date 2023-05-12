@@ -14,8 +14,8 @@ import AllSpell.*;
 public class Wizard extends Character{
 
     public String name;
-    public double hp = 200;
-    public double hpmax = 200;
+    public double hp = 1000;
+    public double hpmax = 1000;
     public double mp = 100;
     public double mpmax = 100;
     public double defense = 10;
@@ -27,6 +27,7 @@ public class Wizard extends Character{
     public Map<String, AbstractSpell> spell = new HashMap<>();
 
     public Wizard(){
+
 
         Scanner scanner = new Scanner(System.in);
         //创建名字
@@ -137,7 +138,7 @@ public class Wizard extends Character{
         }
     }
     public boolean useSpell(Ennemy ennemy){
-
+/*
         System.out.println("You already learned these spell:\n");
         Iterator<Map.Entry<String, AbstractSpell>> iterator = spell.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -150,7 +151,26 @@ public class Wizard extends Character{
         Scanner scanner = new Scanner(System.in);
         String a = scanner.nextLine();
         AbstractSpell spellused = spell.get(a);
-        return spellused.usespell(this,ennemy);
+        return spellused.usespell(this,ennemy);*/
+
+            System.out.println("You already learned these spell:\n");
+            Iterator<Map.Entry<String, AbstractSpell>> iterator = spell.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, AbstractSpell> entry = iterator.next();
+                String name = entry.getKey();
+                System.out.print("[" + name + "]" + "    ");
+            }
+            System.out.println("\n");
+            System.out.println("Which spell do you want to use ? Please spell it:");
+            Scanner scanner = new Scanner(System.in);
+            String a = scanner.nextLine();
+            AbstractSpell spellused = spell.get(a);
+            if (spellused == null) {
+                System.out.println("You have not learned this spell yet. Please try again.");
+                return false;
+            } else {
+                return spellused.usespell(this,ennemy);
+            }
     }
     public void getPet(){
         System.out.println("Which pet do you want to choose；1.Cat  2. Mouse  3.Owl  4.Toad");

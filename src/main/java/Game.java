@@ -72,7 +72,6 @@ public class Game{
             level5.boss_level(wizard);
         }
 
-
         if (wizard.hp > 0){
             level6.normal_level(wizard);
         }

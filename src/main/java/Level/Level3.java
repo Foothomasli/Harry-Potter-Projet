@@ -202,8 +202,12 @@ public class Level3 {
         Scanner scanner = new Scanner(System.in);
         affiche_boss(wizard);
         System.out.println("\n");
-        System.out.println("You need to use the spell Expecto Patronum to attack Patronus");
-        wizard.useSpell(boss);
+        /*wizard.useSpell(boss);*/
+        do {
+            System.out.println("You need to use the spell Expecto Patronum to attack Détraqueurs");
+            invalid_operation = wizard.useSpell(boss);
+            System.out.println("\n");
+        }while (!invalid_operation);
         affiche_boss(wizard);
         System.out.println("\n");
         System.out.println("Choose what you want to do : 1. attack  2. magicattack  3. use the potion");
